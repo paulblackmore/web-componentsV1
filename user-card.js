@@ -20,11 +20,34 @@ template.innerHTML = `
 class UserCard extends HTMLElement {
   constructor() {
 		super();
+		this.users = [];
 		this.attachShadow({ mode: 'open' });
 		this.shadowRoot.appendChild(template.content.cloneNode(true));
 		this.shadowRoot.querySelector('h3').innerHTML = this.getAttribute('title');
 	}
+
+	getUsers(users) {
+		this.users = users;
+		console.log(this.users)
+	}
+
+	clearUsers() {
+		this.users = [];
+	}
 	
+	connectedCallback() {
+		try {
+			fetch('https://jsonplaceholder.typicode.com/users')
+				.then(response => response.json())
+				.then(json => this.getUsers(json))
+		} catch (error) {
+			console.log('error getting users')
+		}
+	}
+
+	disconnectedCallback() {
+		this.clearUsers();
+	}
 }
 
 window.customElements.define('user-card', UserCard);
