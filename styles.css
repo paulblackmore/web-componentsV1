@@ -12,3 +12,8 @@ body {
 	font-size: 70px;
 	font-weight: 900;
 }
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
