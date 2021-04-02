@@ -2,13 +2,18 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, intial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="styles.css">
 	<title>Web Componets V1</title>
 </head>
 <body>
 	<h1 class="title">User List</h1>
 
-	<script src="users.js"></script>
+	<user-card title="Frontend Developer">
+		<div slot="name">Paul Blackmore</div>
+		<div slot="email">paul@slot.com</div>
+	</user-card>
+	
+	<script src="user-card.js"></script>
 </body>
 </html>
