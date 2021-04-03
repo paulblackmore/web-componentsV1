@@ -1,6 +1,13 @@
 const appNav = document.createElement('template');
 appNav.innerHTML = `
   <style>
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+    a:hover {
+      color: #585656;
+    }
     nav {
       width: 200px;
       display: flex;
@@ -10,9 +17,9 @@ appNav.innerHTML = `
     }
   </style>
   <nav>
-    <p>Home</p>
-    <p>About</p>
-    <p>Contact</p>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
   </nav>
 `
 

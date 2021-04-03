@@ -2,9 +2,8 @@ const appHeader = document.createElement('template');
 appHeader.innerHTML = `
   <style>
     header {
-      width: 100%;
       height: 50px;
-      background: #eee;
+      border-bottom: 1px solid #eee;
       display: flex;
       align-items: center;
       justify-content: space-between;
