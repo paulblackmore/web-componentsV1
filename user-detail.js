@@ -9,8 +9,8 @@ class UserDetail extends HTMLElement {
 		this.users = users;
 
 		this.users.forEach(user => {
-			const template = document.createElement('template');
-			template.innerHTML = `
+			const userDetail = document.createElement('template');
+			userDetail.innerHTML = `
 				<style>
 					h2 {
 						margin-top: 0;
@@ -27,7 +27,7 @@ class UserDetail extends HTMLElement {
 					<span>${user.email}</span>
 				</div>
 			`	
-			this.shadowRoot.appendChild(template.content.cloneNode(true));
+			this.shadowRoot.appendChild(userDetail.content.cloneNode(true));
 		})
 	}
 
@@ -35,9 +35,9 @@ class UserDetail extends HTMLElement {
 		this.users = [];
 	}
 	
-	connectedCallback() {
+	async connectedCallback() {
 		try {
-			fetch('https://jsonplaceholder.typicode.com/users')
+			await fetch('https://jsonplaceholder.typicode.com/users')
 				.then(response => response.json())
 				.then(json => this.getUsers(json))
 		} catch (error) {
